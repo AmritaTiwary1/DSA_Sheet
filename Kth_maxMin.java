@@ -2,6 +2,20 @@
 //Given an array arr[] and an integer K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
 
 //using pririty queue
+//In geeksForGeeks ----It shows time limit exceed for below code
+ public static int kthSmallest(int[] arr, int l, int r, int k) 
+    { 
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i=0;i<r;i++){
+            pq.add(arr[i]);
+        }
+        int j=1;
+        while(j < k ){
+            pq.poll();
+        }
+        int ans = pq.peek();
+        return ans; }
+//to find both kth max min using priority queue 
 import java.util.PriorityQueue;
 public class Kth_maxMin {
     public static void kthMaxMin(int[] arr,int n ,int k ) 
