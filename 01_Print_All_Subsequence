@@ -1,0 +1,38 @@
+import java.util.*;
+import java.util.ArrayList;
+
+/*  OUTPUT OF THE CODE :
+[3, 2, 1]
+[3, 2]
+[3, 1]
+[3]
+[2, 1]
+[2]
+[1]
+[]
+*/
+
+public class allSubsequence {
+
+    public static void seq(int arr[],int n,ArrayList<Integer> list,int idx){
+       
+       if(idx ==n){
+        System.out.println(list);
+        return;
+       }
+    
+
+       list.add(arr[idx]); 
+       seq(arr, n, list, idx+1);
+
+       list.remove(Integer.valueOf(arr[idx]));  //here , list.remove() -> takes index as arument , bt we need value to be removed, so (Integer.valueOf(arr[idx]));
+       seq(arr, n, list, idx+1);
+
+    }
+    
+    public static void main(String[] args) {
+       int arr[]=new int[]{3,2,1};
+     seq(arr,arr.length,new ArrayList<>(),0);
+       
+    }
+}
